@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 # Settings
-W, H = (224, 224)
+W, H = (256, 256)
 word = "毐"
 
 

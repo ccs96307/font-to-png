@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-'''
+# coding: utf-8
+"""
 Convert Font file (ex: .ttf) to PNG file (224 x 224)
-'''
+"""
 import os
 import re
 import shutil
@@ -40,7 +40,7 @@ def font2png(W, H, font_name, font_size, bg_color, font_color, word):
 def main():
     # Check the 'fonts' existed
     if 'fonts' not in os.listdir('./'):
-        print('Error! You have no "fonts/" folder.')
+        print('Error! You have no "./fonts/" folder.\nMaybe you can execute donwload.sh to get some example.')
         exit()
 
     # Settings

@@ -14,7 +14,7 @@ fi
 
 # Download a free english font file
 cd fonts
-wget https://www.1001freefonts.com/d/26673/atozimple.zip
+wget https://www.1001freefonts.com/d/26673/atozimple.zip --referer=https://www.1001freefonts.com
 unzip atozimple.zip
 shopt -s extglob
 rm -fr !(Atozimple\ Bold.otf)

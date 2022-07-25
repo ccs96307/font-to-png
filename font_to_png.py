@@ -50,15 +50,10 @@ def font2png(
     # Save png file
     for item in image.getdata():
         if item != (0, 0, 0):
-            image_id = len(os.listdir(f"images/{word}/")) + 1
-            # if len(os.listdir(f"images/{word}/")) >= 1:
-            #     max_num = max([int(re.sub(r"\.png", "", png)) for png in os.listdir(f"images/{word}/")])
-            #     max_num += 1
-            # else:
-            #     max_num = 1
+            image_id = len(os.listdir(f"outputs/{word}/")) + 1
 
             print(word, image_id)
-            image.save(f"images/{word}/{image_id}.png")
+            image.save(f"outputs/{word}/{image_id}.png")
             break
 
 
@@ -81,18 +76,23 @@ def main() -> None:
     font_path = "fonts/"
 
     # Remove existed folder
-    if "images" in os.listdir("./"):
-        shutil.rmtree("images")
-
-    os.mkdir("images/")
+    if "outputs" not in os.listdir("./"):
+        os.mkdir("outputs/")
 
     # Save the font images in echo other folder
     for word in word_list:
-        os.mkdir(f"images/{word}")
+        if word not in os.listdir("outputs/"):
+            os.mkdir(f"outputs/{word}")
 
         for font_name in os.listdir(font_path):
             try:
-                font2png(font_name, font_size, background_color, font_color, word)
+                font2png(
+                    font_name, 
+                    font_size, 
+                    background_color, 
+                    font_color, 
+                    word,
+                )
             except OSError as e:
                 print(f"An Error occurred. {e}")
 
